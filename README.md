@@ -7,3 +7,4 @@ TO START:
 -> change the folder.location to the location of the folder you want to scan
 -> you can configure the buzz.words based on your requirements
 -> change the file.output to the new file location in your location which will be created and store the response
+-> start the server locally and hit http://localhost:8080/file from browser
