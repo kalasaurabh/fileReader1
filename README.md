@@ -1,5 +1,5 @@
 # fileReader1
-This process will scan the folder and list out the occurence of all the configured buzz words cross all the files.
+This process will scan the folder and list out the occurence of all the configured buzz words across all the files.
 
 TO START:
 
