@@ -1,17 +1,11 @@
 package com.example.fileReader.Service;
 
-import com.example.fileReader.Model.Document;
-import com.example.fileReader.Model.Heading;
 import com.example.fileReader.Model.Response;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -35,6 +29,9 @@ public class FileReaderService {
 
     @Value("${file.header}")
     private String[] headers;
+
+    @Value("${file.output}")
+    private String outputLocation;
     @Autowired
     private MSWordReaderService msWordReaderService;
 
@@ -46,6 +43,7 @@ public class FileReaderService {
                     .filter(File::isFile).map(msWordReaderService::readFile)
                     .collect(Collectors.toList());
             List<Response> responseList = calculateOccurance(mpValues,valuesArray,headers);
+            writeToFile(responseList,outputLocation);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

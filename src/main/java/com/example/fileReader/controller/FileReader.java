@@ -14,6 +14,7 @@ public class FileReader {
 
     @GetMapping("/file")
     public String getName() {
+        fileReaderService.readFile();
         return "Hello";
     }
 
