@@ -4,7 +4,6 @@ public class Response {
 
     private String headingName;
     private int occurence;
-    private int document;
 
     public String getHeadingName() {
         return headingName;
@@ -22,13 +21,6 @@ public class Response {
         this.occurence = occurence;
     }
 
-    public int getDocument() {
-        return document;
-    }
-
-    public void setDocument(int document) {
-        this.document = document;
-    }
 
     public Response() {
     }
@@ -38,7 +30,6 @@ public class Response {
         return "Response{" +
                 "headingName='" + headingName + '\'' +
                 ", occurence=" + occurence +
-                ", document=" + document +
                 '}';
     }
 }

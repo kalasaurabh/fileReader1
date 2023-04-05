@@ -1,6 +1,5 @@
 package com.example.fileReader.Service;
 
-import com.example.fileReader.Model.Document;
 import com.example.fileReader.Model.Heading;
 import org.apache.poi.xwpf.usermodel.IBodyElement;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
