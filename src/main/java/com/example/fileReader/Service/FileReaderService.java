@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -43,6 +44,7 @@ public class FileReaderService {
                     .filter(File::isFile).map(msWordReaderService::readFile)
                     .collect(Collectors.toList());
             List<Response> responseList = calculateOccurance(mpValues,valuesArray,headers);
+            responseList.sort((o1,o2)-> o1.getHeadingName().compareTo(o2.getHeadingName()));
             writeToFile(responseList,outputLocation);
         } catch (IOException e) {
             throw new RuntimeException(e);
